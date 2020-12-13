@@ -87,6 +87,13 @@
                 /*登录*/
                 axios.post("http://localhost:8081/user/login",this.user).then((res)=>{
                     console.log(res.data);
+                    window.localStorage.setItem("userId",res.data.userId);
+                    if(res.data.state){
+                        alert(res.data.msg+",点击确定进入主页");
+                        window.location.href="./province/provincelist.html";
+                    }else {
+                        alert(res.data.msg);
+                    }
                 });
             }
         }

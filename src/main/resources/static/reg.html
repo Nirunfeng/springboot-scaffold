@@ -112,11 +112,11 @@
                     _this.src="data:image/jpg;base64,"+res.data.image;
                     _this.key=res.data.key;
                 });
-            },
-            created(){
-                /*页面加载成功同时获取验证码*/
-                this.getImage();
             }
+        },
+        created(){
+            /*页面加载成功同时获取验证码*/
+            this.getImage();
         }
     });
 </script>

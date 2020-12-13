@@ -101,14 +101,16 @@ public class UserController {
      * @return
      */
     @RequestMapping("login")
-    public ResultState login(@RequestBody User user){
+    public ResultState login(@RequestBody User user,HttpServletRequest request){
         ResultState resultState=new ResultState();
         /*调用service获取user*/
         try {
             /*登陆成功情况*/
             User loginuser=userService.login(user);
             /*登陆成功后要保存user标记*/
+            request.getServletContext().setAttribute(loginuser.getId(),loginuser);
             resultState.setMsg("登录成功");
+            resultState.setUserId(loginuser.getId());
         } catch (Exception e) {
             /*登录失败情况*/
             resultState.setMsg(e.getMessage());

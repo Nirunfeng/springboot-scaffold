@@ -8,6 +8,6 @@
 
     <!--用户登录-->
     <select id="findUserByusername" parameterType="String" resultType="User">
-        select username,password from t_user where username=#{username}
+        select id,username,password from t_user where username=#{username}
     </select>
 </mapper>
